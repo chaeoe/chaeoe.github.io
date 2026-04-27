@@ -2,6 +2,7 @@
 layout: post
 title: "내가 좋아하는 책"
 date: 2026-04-27 16:11:00 +0900
+excerpt: "박경리의 토지를 소개합니다."
 categories: [리뷰]
 tags: [책, 한국문학]
 ---
