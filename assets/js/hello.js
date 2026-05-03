@@ -1,5 +1,5 @@
 // assets/js/hello.js
-const name = "채영";
+const name = "김채영";
 const major = "아동가족학";
 const year = 2026;
 
