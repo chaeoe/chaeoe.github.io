@@ -9,5 +9,5 @@ for (const ch of text) {
     }
 }
 
-console.log(`${text}`)
+console.log(`${text}`);
 console.log(`'${target}' 글자는 ${count}번 등장합니다.`);
