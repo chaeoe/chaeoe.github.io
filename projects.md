@@ -11,3 +11,4 @@ title: "프로젝트"
 | Javascript 테스트(0504) | 웹 도구 | 완료 | [조건문과 반복문](/js-test/js-test-1.md) |
 | Javascript 테스트(0506) | 웹 도구 | 완료 | [함수와 배열](/js-test/js-test-2.md) |
 | Javascript 기초 연습(숙제10) | 웹 도구 | 완료 | [hw10](/hw10.md) |
+| DOM 테스트(0511) | 웹 도구 | 완료 | [DOM 조작](/dom-test.md) |
