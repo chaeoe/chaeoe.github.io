@@ -65,8 +65,12 @@ fetch("/data/nobel-literature.csv")
                 title: { display: true, text: "노벨문학상 수상자 수 추이 (10년 단위)" }
             },
             scales: {
-                x: { display: true, text: "연대" },
-                y: { display: true, text: "수상자 수" }
+                x: {
+                    title: { display: true, text: "연대" }
+                },
+                y: {
+                    title: { display: true, text: "수상자 수" }
+                }
             }
         }
     })
