@@ -29,3 +29,45 @@ fetch("/data/sillok.json")
         }
     })
   });
+
+// Q2
+fetch("/data/nobel-literature.csv")
+  .then(response => response.text())
+  .then(csv => {
+    const rows = csv
+      .split("\n") // 헤더 떼기
+      .slice(1) // 빈 줄 떼기
+      .filter(line => line.trim() !== "")
+      .map(line => {
+        const cols = line.split(",");
+        return {
+          decade: Number(cols[0]),
+          count: Number(cols[1]),
+        };
+      });
+    const labels = rows.map(r => `${r.decade}년대`);
+    const counts = rows.map(r => r.count);
+
+    const canvas = document.querySelector("#q2-chart");
+    new Chart(canvas, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "수상자 수",
+                data: counts,
+                borderColor: "rgba(54, 162, 235, 1)",
+                backgroundcolor: "rgba(54, 162, 235, 0.2)"
+            }]
+        },
+        options: {
+            plugins: {
+                title: { display: true, text: "노벨문학상 수상자 수 추이 (10년 단위)" }
+            },
+            scales: {
+                x: { display: true, text: "연대" },
+                y: { display: true, text: "수상자 수" }
+            }
+        }
+    })
+  });
