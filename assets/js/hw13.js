@@ -1,3 +1,7 @@
+// [숙제13] 텍스트 분석 도구 구현
+// 2025-13100 김채영
+
+// --- 함수 정의들 (21강 코드 재사용) ---
 // 1. 본문 가져오기
 function extractBody(text) {
     const startMark = "*** START OF THE PROJECT GUTENBERG EBOOK";
@@ -49,18 +53,19 @@ function analyze(text, stopwords) {
     return topN(counts, 30);
 }
 
+// --- 메인: 세 파일을 동시에 fetch ---
 // 파일 읽고 처리하기
 Promise.all([
-  fetch("/data/scarlet.txt").then(r => r.text()),
-  fetch("/data/hound.txt").then(r => r.text()),
+  fetch("/data/frankenstein.txt").then(r => r.text()),
+  fetch("/data/dracula.txt").then(r => r.text()),
   fetch("/data/stopwords-en.txt").then(r => r.text()),
-]).then(([scarletText, houndText, stopwordsText]) => {
+]).then(([frankText, dracText, stopwordsText]) => {
   const stopwords = stopwordsText.split(/\s+/)
     .filter(w => w.length > 0);
-  const scarletTop = analyze(scarletText, stopwords);
-  const houndTop   = analyze(houndText, stopwords);
-  drawChart("#chart-scarlet", scarletTop, "rgba(220, 53, 69, 0.6)");
-  drawChart("#chart-hound", houndTop, "rgba(54, 162, 235, 0.6)");
+  const frankTop = analyze(frankText, stopwords);
+  const dracTop   = analyze(dracText, stopwords);
+  drawChart("#chart-frankenstein", frankTop, "rgba(40, 167, 69, 0.6)");
+  drawChart("#chart-dracula", dracTop, "rgba(220, 53, 69, 0.6)");
 });
 
 function drawChart(selector, top, color) {
