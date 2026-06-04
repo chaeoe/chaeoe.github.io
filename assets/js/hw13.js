@@ -18,7 +18,8 @@ function extractBody(text) {
 function getWords(text) {
     return text
         .toLowerCase()
-        .replace(/[^a-z\s]/g, " ") // a-z와 공백 외 전부(--, ., 숫자 등)를 공백으로
+        .replace(/[.,!?";:-]/g, " ")
+        // 상위 30개 어휘에 --가 등장해서, 이를 방지하기 위해 기존 [...]에 -를 추가함.
         .split(/\s+/)
         .filter(w => w.length > 0);
 }
