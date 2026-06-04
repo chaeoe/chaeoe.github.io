@@ -18,7 +18,7 @@ function extractBody(text) {
 function getWords(text) {
     return text
         .toLowerCase()
-        .replace(/[.,!?;:'"‘’“”()\[\]_*]/g, " ")
+        .replace(/[^a-z\s]/g, " ") // a-z와 공백 외 전부(--, ., 숫자 등)를 공백으로
         .split(/\s+/)
         .filter(w => w.length > 0);
 }
@@ -59,11 +59,13 @@ Promise.all([
   fetch("/data/frankenstein.txt").then(r => r.text()),
   fetch("/data/dracula.txt").then(r => r.text()),
   fetch("/data/stopwords-en.txt").then(r => r.text()),
-]).then(([frankText, dracText, stopwordsText]) => {
-  const stopwords = stopwordsText.split(/\s+/)
+  fetch("/data/stopwords-custom.txt").then(r => r.text()),
+]).then(([frankText, dracText, baseStop, customStop]) => {
+    const stopwords = (baseStop + "\n" + customStop)
+    .split(/\s+/)
     .filter(w => w.length > 0);
   const frankTop = analyze(frankText, stopwords);
-  const dracTop   = analyze(dracText, stopwords);
+  const dracTop  = analyze(dracText, stopwords);
   drawChart("#chart-frankenstein", frankTop, "rgba(40, 167, 69, 0.6)");
   drawChart("#chart-dracula", dracTop, "rgba(220, 53, 69, 0.6)");
 });
