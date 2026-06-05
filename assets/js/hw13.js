@@ -19,7 +19,7 @@ function getWords(text) {
     return text
         .toLowerCase()
         .replace(/[.,!?;:'"‘’“”()\[\]_*-]/g, " ")
-        // 상위 30개 어휘에 --가 등장해서, 이를 방지하기 위해 기존 [...]에 -를 추가함.
+        // Dracula의 상위 30개 어휘 중 --가 등장해서, 이를 방지하기 위해 기존 [...]에 -를 추가함.
         .split(/\s+/)
         .filter(w => w.length > 0);
 }
