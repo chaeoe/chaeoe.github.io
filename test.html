@@ -1,0 +1,18 @@
+// 추후 삭제 예정
+<h1 id="title">이상의 작품</h1>
+<p>1936년에 발표된 단편소설이다.</p>
+
+<form id="search-form">
+  <input id="q" type="text" placeholder="검색어">
+  <button type="submit">검색</button>
+</form>
+<p id="result"></p>
+
+<h2 id="msg">처음 메세지</h2>
+<button id="change-btn">메세지 바꾸기</button>
+const msg = document.querySelector("#msg");
+const btn = document.querySelector("#change-btn");
+btn.addEventListener("click", () => {
+  msg.textContent = "바뀐 메세지!";
+  msg.style.color = "crimson";
+});
