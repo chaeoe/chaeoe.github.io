@@ -2,7 +2,7 @@
 function getWords(text) {
     return text
         .toLowerCase()
-        .replace(/[.,!?;:'"‘’“”()\[\]_*]/g, " ")
+        .replace(/[.,!?;:'"‘’“”()\[\]_*-]/g, " ") // (기존 대비) - 추가
         .split(/\s+/)
         .filter(w => w.length > 0);
 }

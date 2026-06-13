@@ -2,7 +2,7 @@
 // 2025-13100 김채영
 
 // --- 함수 정의들 (21강 코드 재사용) ---
-// 1. 본문 가져오기
+// 본문 가져오기
 function extractBody(text) {
     const startMark = "*** START OF THE PROJECT GUTENBERG EBOOK";
     const endMark   = "*** END OF THE PROJECT GUTENBERG EBOOK";
